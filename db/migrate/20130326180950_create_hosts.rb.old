@@ -1,0 +1,17 @@
+class CreateHosts < ActiveRecord::Migration
+  def change
+    create_table :hosts do |t|
+      t.string :name
+      t.string :ip
+      t.string :location
+      t.string :host_type
+      t.string :opsystem
+      t.string :iogroup
+      t.integer :primary_sadmin_id
+      t.integer :secondary_sadmin_id
+      t.string :purpose
+
+      t.timestamps
+    end
+  end
+end

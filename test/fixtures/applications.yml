@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  critical: MyString
+  PBContactName: MyString
+  PBContactNetID: MyString
+  PBContactPhone: 1
+  PTContactName: MyString
+  PTContactNetID: MyString
+  PTContactPhone: 1
+  STContactName: MyString
+  STContactNetID: MyString
+  STContactPhone: 1
+
+two:
+  name: MyString
+  critical: MyString
+  PBContactName: MyString
+  PBContactNetID: MyString
+  PBContactPhone: 1
+  PTContactName: MyString
+  PTContactNetID: MyString
+  PTContactPhone: 1
+  STContactName: MyString
+  STContactNetID: MyString
+  STContactPhone: 1

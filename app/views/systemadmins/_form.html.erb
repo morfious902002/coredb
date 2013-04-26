@@ -1,0 +1,41 @@
+<%= form_for(@systemadmin) do |f| %>
+  <% if @systemadmin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@systemadmin.errors.count, "error") %> prohibited this systemadmin from being saved:</h2>
+
+      <ul>
+      <% @systemadmin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :"Full Name" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :netid %><br />
+    <%= f.text_field :netid %>
+  </div>
+  <div class="field">
+    <%= f.label :"Primary Phone Number" %><br />
+    <%= f.number_field :priphone %>
+  </div>
+  <div class="field">
+    <%= f.label :"Seconday Phone Number" %><br />
+    <%= f.number_field :secphone %>
+  </div>
+  <div class="field">
+    <%= f.label :Email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :Location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Netid</th>
+        <th>Primary phone</th>
+        <th>Secondary phone</th>
+        <th>Email</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+<tbody>
+  <tr>
+    <td><%= link_to @dbadmin.name, @dbadmin %></td>
+    <td><%= @dbadmin.netid %></td>
+    <td><%= @dbadmin.priphone %></td>
+    <td><%= @dbadmin.secphone %></td>
+    <td><%= @dbadmin.email %></td>
+    <td><%= @dbadmin.location %></td>
+  </tr>
+  </tbody>
+</table>
+
+<p>
+<b>Databases Managed:</b></p>
+<% if @primaryAdmins %>  
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Database Name:</th>
+        <th>Host:</th>
+        <th>Secondary DBA</th>
+        <th>Port:</th>
+        <th>Created On</th>
+        <th>DB Version</th>
+      </tr>
+    </thead>
+    <b>Primary Administrator:-</b>
+  <tbody> 
+
+  <% @primaryAdmins.each do |pAdminDatabase| %>
+  <tr>
+    
+    <td><%= link_to pAdminDatabase.name, pAdminDatabase %></td>
+    <td><%= link_to Host.find_by_id(pAdminDatabase.host_id).name, Host.find_by_id(pAdminDatabase.host_id) %></td>
+    <td><%= link_to Dbadmin.find_by_id(pAdminDatabase.secondary_dba_id).name, Dbadmin.find_by_id(pAdminDatabase.secondary_dba_id) %></td>
+    <td><%= pAdminDatabase.port %></td>
+    <td><%= pAdminDatabase.dbcreated_on.to_date %></td>
+    <td><%= pAdminDatabase.version %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>  
+<% end %>
+
+<% if @secondaryAdmins %>  
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Database Name:</th>
+        <th>Host:</th>
+        <th>Primary DBA</th>
+        <th>Port:</th>
+        <th>Created On</th>
+        <th>DB Version</th>
+      </tr>
+    </thead>
+    <b>Secondary Administrator:-</b>
+  <tbody>     
+  <% @secondaryAdmins.each do |secAdmin| %>
+  <tr>
+    <td><%= link_to secAdmin.name, secAdmin %></td>
+    <td><%= link_to Host.find_by_id(secAdmin.host_id).name, Host.find_by_id(secAdmin.host_id) %></td>
+    <td><%= link_to Dbadmin.find_by_id(secAdmin.primary_dba_id).name, Dbadmin.find_by_id(secAdmin.primary_dba_id) %></td>
+    <td><%= secAdmin.port %></td>
+    <td><%= secAdmin.dbcreated_on.to_date %></td>
+    <td><%= secAdmin.version %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>  
+<% end %>
+
+</p>
+<%= link_to 'Edit', edit_dbadmin_path(@dbadmin), :class => 'btn' %> 
+<%= link_to 'Back', dbadmins_path, :class => 'btn' %>

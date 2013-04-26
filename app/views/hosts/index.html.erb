@@ -1,0 +1,49 @@
+<h1>Hosts</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+  <tr>
+    <th>Name</th>
+    <th>IP</th>
+    <th>Virtual IP</th>
+    <th>Location</th>
+    <th>Type</th>
+    <th>Operating System</th>
+    <th>OS Name</th>
+    <th>Bit</th>
+    <th>Iogroup</th>
+    <th>Primary System Admin</th>
+    <th>Secondary System Admin</th>
+    <th>Purpose</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+</thead>
+
+<% @hosts.each do |host| %>
+<tbody>
+  <tr>
+    <td><%= link_to host.name, host %></td>
+    <td><%= host.ip %></td>
+    <td><%= host.virtualIP %></td>
+    <td><%= host.location %></td>
+    <td><%= host.host_type %></td>
+    <td><%= host.opsystem %></td>
+    <td><%= host.osName %></td>
+    <td><%= host.bit %></td>
+    <td><%= host.iogroup %></td>
+    <td><%= link_to Systemadmin.find(host.primary_sadmin_id).name, Systemadmin.find(host.primary_sadmin_id) %></td>
+    <td><%= link_to Systemadmin.find(host.secondary_sadmin_id).name, Systemadmin.find(host.secondary_sadmin_id) %></td>
+    <td><%= host.purpose %></td>
+    <td><%= host.description %></td>
+    <td type="button"><%= link_to 'Edit', edit_host_path(host), :class => "btn btn-mini" %></td>
+    <td type="button"><%= link_to 'Delete', host, :class => "btn btn-mini", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</tbody>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Host', new_host_path, :class => "btn" %>

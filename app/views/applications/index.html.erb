@@ -1,0 +1,43 @@
+<h1>Applications</h1>
+
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Critical</th>
+    <th>Pbcontactname</th>
+    <th>Pbcontactnetid</th>
+    <th>Pbcontactphone</th>
+    <th>Ptcontactname</th>
+    <th>Ptcontactnetid</th>
+    <th>Ptcontactphone</th>
+    <th>Stcontactname</th>
+    <th>Stcontactnetid</th>
+    <th>Stcontactphone</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @apps.each do |application| %>
+  <tr>
+    <td><%= link_to application.name, application %></td>
+    <td><%= application.critical %></td>
+    <td><%= application.PBContactName %></td>
+    <td><%= application.PBContactNetID %></td>
+    <td><%= application.PBContactPhone %></td>
+    <td><%= application.PTContactName %></td>
+    <td><%= application.PTContactNetID %></td>
+    <td><%= application.PTContactPhone %></td>
+    <td><%= application.STContactName %></td>
+    <td><%= application.STContactNetID %></td>
+    <td><%= application.STContactPhone %></td>
+    <td type="button"><%= link_to 'Edit', edit_application_path(application), :class => "btn btn-mini" %></td>
+    <td type="button"><%= link_to 'Destroy', application, :class => "btn btn-mini", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+  
+</table>
+
+<br />
+
+<%= link_to 'New Application', new_application_path, :class => "btn" %>

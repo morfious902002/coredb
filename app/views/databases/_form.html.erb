@@ -1,0 +1,61 @@
+<%= form_for(@database) do |f| %>
+  <% if @database.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@database.errors.count, "error") %> prohibited this database from being saved:</h2>
+
+      <ul>
+      <% @database.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :host_id %><br />
+    <%= f.number_field :host_id %>
+  </div>
+  <div class="field">
+    <%= f.label :"Primary Database Admin" %><br />
+    <%= f.text_field :dba_name1 %>
+  </div>
+  <div class="field">
+    <%= f.label :"Secondary Database Admin" %><br />
+    <%= f.text_field :dba_name2 %>
+  </div>
+  <div class="field">
+    <%= f.label :port %><br />
+    <%= f.number_field :port %>
+  </div>
+  <div class="field">
+    <%= f.label :server_id %><br />
+    <%= f.number_field :server_id %>
+  </div>
+  <div class="field">
+    <%= f.label :drmethod %><br />
+    <%= f.text_field :drmethod %>
+  </div>
+  <div class="field">
+    <%= f.label :dbcreated_on %><br />
+    <%= f.date_select :dbcreated_on %>
+  </div>
+  <div class="field">
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </div>
+  <div class="field">
+    <%= f.label :unique_hash %><br />
+    <%= f.text_field :unique_hash %>
+  </div>
+  <div class="field">
+    <%= f.label :server_desc %><br />
+    <%= f.text_field :server_desc %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Application</th>
+    <th>Database</th>
+  </tr>
+  <tr>
+    <td><%= link_to @schema.name, @schema %></td>
+    <td><%= @schema.size %></td>
+    <td><%= link_to Application.find_by_id(@schema.application_id).name, Application.find_by_id(@schema.application_id) %></td>
+    <td><%= link_to Database.find_by_id(@schema.database_id).name , Database.find_by_id(@schema.database_id) %></td>
+  </tr>
+</table>
+
+
+<%= link_to 'Edit', edit_schema_path(@schema), :class => 'btn' %>
+<%= link_to 'Back', schemas_path, :class => 'btn' %>

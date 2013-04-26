@@ -1,0 +1,14 @@
+class CreateDbadmins < ActiveRecord::Migration
+  def change
+    create_table :dbadmins do |t|
+      t.string :name
+      t.string :netid
+      t.integer :priphone
+      t.integer :secphone
+      t.string :email
+      t.string :location
+
+      t.timestamps
+    end
+  end
+end

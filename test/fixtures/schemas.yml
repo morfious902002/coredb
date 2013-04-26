@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  size: 1
+  application_id: 1
+  database_id: 1
+
+two:
+  name: MyString
+  size: 1
+  application_id: 1
+  database_id: 1

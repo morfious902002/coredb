@@ -1,0 +1,32 @@
+
+<ul class="nav">
+  <li><img src = "assets/nyu_logo.gif"></li>
+  <li><%= link_to "Home", root_path, :class => 'home' %></li>
+  <% if user_signed_in? %>
+    <% if current_user.has_role? :admin %>
+      <li><%= link_to('Applications', "/applications") %></li>
+      <li><%= link_to('Schemas', "/schemas") %></li>
+      <li><%= link_to('Databases', "/databases") %></li>
+      <li><%= link_to('Hosts', "/hosts")  %></li>
+      <li><%= link_to 'Users', "/users"  %></li>
+      <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Admins <b class="caret"></b>
+              </a>
+      <ul class="dropdown-menu">      
+        <li><%= link_to('DBAdmins', "/dbadmins") %></li>
+        <li><%= link_to 'Sys Admins', "/systemadmins"  %></li>
+      </ul>
+    </li>
+    <% end %>  
+    <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+    <% else %>
+      <li><%= link_to 'Login', new_user_session_path %></li>
+    <% end %>
+  <% if user_signed_in? %>
+    <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+  <% else %>
+    <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  <% end %>
+  <li><%= link_to "About", "/home/about" %></li>
+</ul>

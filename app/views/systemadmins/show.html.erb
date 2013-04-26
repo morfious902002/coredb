@@ -1,0 +1,98 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+  <tr>
+    <th>Name</th>
+    <th>Netid</th>
+    <th>Primary Phone</th>
+    <th>Seconday Phone</th>
+    <th>Email</th>
+    <th>Location</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td><%= link_to @systemadmin.name, @systemadmin %></td>
+    <td><%= @systemadmin.netid %></td>
+    <td><%= @systemadmin.priphone %></td>
+    <td><%= @systemadmin.secphone %></td>
+    <td><%= @systemadmin.email %></td>
+    <td><%= @systemadmin.location %></td>
+  </tr>
+</tbody>
+</table>
+
+
+  <b>Hosts Managed:</b>
+  <br>
+  <% if @pSAdmins %>  
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Host name</th>
+        <th>Host IP</th>
+        <th>Location</th>
+        <th>Host Type</th>
+        <th>Host OS Type:</th>
+        <th>Host OS Name:</th>
+        <th>Host OS bit</th>
+        <th>Secondary System Admin</th>
+      </tr>
+    </thead>
+    <b>Primary System Administrator:-</b>
+  <tbody>     
+  <% @pSAdmins.each do |pSAdmin| %>
+  <tr>
+    <td><%= link_to pSAdmin.name, pSAdmin %></td>
+    <td><%= pSAdmin.ip %></td>
+    <td><%= pSAdmin.location %></td>
+    <td><%= pSAdmin.host_type %></td>
+    <td><%= pSAdmin.opsystem %></td>
+    <td><%= pSAdmin.osName %></td>
+    <td><%= pSAdmin.bit %></td>
+    <td><%= link_to Systemadmin.find(pSAdmin.secondary_sadmin_id).name, Systemadmin.find(pSAdmin.secondary_sadmin_id) %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>  
+<% end %>
+
+<br>
+
+<% if @secSAdmins %>  
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Host name</th>
+        <th>Host IP</th>
+        <th>Location</th>
+        <th>Host Type</th>
+        <th>Host OS Type:</th>
+        <th>Host OS Name:</th>
+        <th>Host OS bit</th>
+        <th>Primary System Admin</th>
+      </tr>
+    </thead>
+    <b>Secondary System Administrator:-</b>
+  <tbody>     
+  <% @secSAdmins.each do |secSAdmin| %>
+  <tr>
+    <td><%= link_to secSAdmin.name, secSAdmin %></td>
+    <td><%= secSAdmin.ip %></td>
+    <td><%= secSAdmin.location %></td>
+    <td><%= secSAdmin.host_type %></td>
+    <td><%= secSAdmin.opsystem %></td>
+    <td><%= secSAdmin.osName %></td>
+    <td><%= secSAdmin.bit %></td>
+    <td><%= link_to Systemadmin.find(secSAdmin.primary_sadmin_id).name, Systemadmin.find(secSAdmin.primary_sadmin_id) %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>  
+<% end %>
+
+<br><br>
+<%= link_to 'Edit', edit_systemadmin_path(@systemadmin), :class => 'btn' %>
+<%= link_to 'Back', systemadmins_path, :class => 'btn' %>

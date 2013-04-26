@@ -1,0 +1,61 @@
+<%= form_for(@application) do |f| %>
+  <% if @application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@application.errors.count, "error") %> prohibited this application from being saved:</h2>
+
+      <ul>
+      <% @application.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :critical %>
+    <%= f.text_field :critical %>
+  </div>
+  <div class="field">
+    <%= f.label :PBContactName %>
+    <%= f.text_field :PBContactName %>
+  </div>
+  <div class="field">
+    <%= f.label :PBContactNetID %>
+    <%= f.text_field :PBContactNetID %>
+  </div>
+  <div class="field">
+    <%= f.label :PBContactPhone %>
+    <%= f.number_field :PBContactPhone %>
+  </div>
+  <div class="field">
+    <%= f.label :PTContactName %>
+    <%= f.text_field :PTContactName %>
+  </div>
+  <div class="field">
+    <%= f.label :PTContactNetID %>
+    <%= f.text_field :PTContactNetID %>
+  </div>
+  <div class="field">
+    <%= f.label :PTContactPhone %>
+    <%= f.number_field :PTContactPhone %>
+  </div>
+  <div class="field">
+    <%= f.label :STContactName %>
+    <%= f.text_field :STContactName %>
+  </div>
+  <div class="field">
+    <%= f.label :STContactNetID %>
+    <%= f.text_field :STContactNetID %>
+  </div>
+  <div class="field">
+    <%= f.label :STContactPhone %>
+    <%= f.number_field :STContactPhone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

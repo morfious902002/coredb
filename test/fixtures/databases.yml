@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  host_id: 1
+  primary_dba_id: 1
+  secondary_dba_id: 1
+  port: 1
+  server_id: 1
+  dbmethod: MyString
+  dbcreated_on: 2013-03-27 12:42:59
+  version: MyString
+  unique_hash: MyString
+  server_type: MyString
+
+two:
+  name: MyString
+  host_id: 1
+  primary_dba_id: 1
+  secondary_dba_id: 1
+  port: 1
+  server_id: 1
+  dbmethod: MyString
+  dbcreated_on: 2013-03-27 12:42:59
+  version: MyString
+  unique_hash: MyString
+  server_type: MyString
