@@ -4,6 +4,9 @@ class Host < ActiveRecord::Base
   belongs_to :secondary_sadmin, :class_name => 'Systemadmin', :foreign_key => 'secondary_sadmin_id'
   has_many   :database, :class_name => 'Host'
   
+  validates :sa_name1, :presence => true
+  validates :sa_name2, :presence => true
+  validate :sa_primary_secondary_validation
 
   def sa_name1
     primary_sadmin.try(:sa_name1)
@@ -19,6 +22,10 @@ class Host < ActiveRecord::Base
   
   def sa_name2=(sa_name2)
     self.secondary_sadmin = Systemadmin.find_or_create_by_name(sa_name2) if sa_name2.present?
+  end
+
+  def sa_primary_secondary_validation
+    errors.add(:sa_name2, "Cannot be same as Primary System Admin.") if sa_name1 == sa_name2
   end
 
 end

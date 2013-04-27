@@ -1,4 +1,6 @@
 class SchemasController < ApplicationController
+  autocomplete  :application, :name, :full => true
+  autocomplete  :database, :name, :full => true
   before_filter :authenticate_user!
   before_filter :only_allow_admin, :only => [ :index, :edit, :destroy, :new, :create, :update ]
   

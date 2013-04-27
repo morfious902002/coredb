@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :"Primary Database Admin" %><br />
-    <%= f.text_field :dba_name1 %>
+    <%= f.autocomplete_field :dba_name1, databases_autocomplete_dbadmin_name_path %>
   </div>
   <div class="field">
     <%= f.label :"Secondary Database Admin" %><br />
-    <%= f.text_field :dba_name2 %>
+    <%= f.autocomplete_field :dba_name2, databases_autocomplete_dbadmin_name_path %>
   </div>
   <div class="field">
     <%= f.label :port %><br />

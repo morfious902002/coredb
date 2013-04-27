@@ -4,6 +4,9 @@ class Database < ActiveRecord::Base
   belongs_to :secondary_dba, :class_name => 'Dbadmin', :foreign_key => 'secondary_dba_id'
   belongs_to :host, :class_name => 'Host'
   validates  :name, :presence => true
+  validates  :dba_name1, :presence => true
+  validates  :dba_name2, :presence => true
+  validate   :dba_primary_secondary_validation
   has_many   :schemas
   
 
@@ -23,11 +26,7 @@ class Database < ActiveRecord::Base
     self.secondary_dba = Dbadmin.find_or_create_by_name(dba_name2) if dba_name2.present?
   end
 
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
+  def dba_primary_secondary_validation
+    errors.add(:dba_name2, "cannot be same as Primary Database Admin.") if dba_name1 == dba_name2
   end
 end

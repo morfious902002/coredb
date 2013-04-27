@@ -1,7 +1,9 @@
-class Schema < ActiveRecord::Base
+class Schema < ActiveRecord::Base  
   attr_accessible :application_id, :database_id, :name, :size, :application_name, :database_name
   belongs_to :database , :class_name => 'Database'
   belongs_to :application , :class_name => 'Application'
+  validates :database, :presence => true
+  validates :application, :presence => true
 
   def application_name
     application.try(:application_name)

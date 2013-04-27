@@ -11,8 +11,10 @@ Coredb::Application.routes.draw do
   get "home/about"
   match '/home/index', :controller => 'home', :action => "index"
   resources :home
-  # get "schemas/autocomplete_database_name"
+  get "schemas/autocomplete_database_name"
   get "hosts/autocomplete_systemadmin_name"
+  get "databases/autocomplete_dbadmin_name"
+  get "schemas/autocomplete_application_name"
   #Rails3DeviseRspecCucumber::Application.routes.draw do
 
   # devise_for :admin_users, ActiveAdmin::Devise.config

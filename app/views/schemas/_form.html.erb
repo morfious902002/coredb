@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :application_name %><br />
-    <%= f.text_field :application_name %>
+    <%= f.autocomplete_field :application_name, schemas_autocomplete_application_name_path %>
   </div>
   <div class="field">
     <%= f.label :database_name %><br />
-    <%= f.text_field :database_name %>
+    <%= f.autocomplete_field :database_name, schemas_autocomplete_database_name_path %>
   </div>
   <div class="actions">
     <%= f.submit %>
