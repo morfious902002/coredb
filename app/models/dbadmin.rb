@@ -3,7 +3,7 @@ class Dbadmin < ActiveRecord::Base
   has_many :primary_dba, :class_name => 'Database', :foreign_key => 'primary_dba_id'
   has_many :secondary_dba, :class_name => 'Database', :foreign_key => 'secondary_dba_id'
 
-  validates :email, :format => /@/
+  #validates :email, :format => /@/
 
   def dba_name1
   	sa_name1 = self.name

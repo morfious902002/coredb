@@ -96,6 +96,7 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.22)
     multi_json (1.7.2)
+    nifty-generators (0.4.6)
     orm_adapter (0.4.0)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
@@ -170,6 +171,7 @@ DEPENDENCIES
   devise
   jquery-rails
   meta_search
+  nifty-generators
   rails (= 3.2.13)
   rails3-jquery-autocomplete
   rolify

@@ -1,4 +1,4 @@
-<%= form_for(@host) do |f| %>
+<%= simple_form_for(@host) do |f| %>
   <% if @host.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@host.errors.count, "error") %> prohibited this host from being saved:</h2>
@@ -50,11 +50,11 @@
   </div>
   <div class="field">
     <%= f.label :"Primary System Admin" %>
-    <%= f.text_field :sa_name1 %>
+    <%= f.autocomplete_field :sa_name1, hosts_autocomplete_systemadmin_name_path %>
   </div>
   <div class="field">
     <%= f.label :"Secondary System Admin" %>
-    <%= f.text_field :sa_name2 %>
+    <%= f.autocomplete_field :sa_name2, hosts_autocomplete_systemadmin_name_path %>
   </div>
   <div class="field">
     <%= f.label :Purpose %>

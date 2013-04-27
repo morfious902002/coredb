@@ -12,6 +12,7 @@ gem 'seed_dump'
 gem 'rails3-jquery-autocomplete'
 gem 'jquery-rails'
 gem "meta_search"
+gem 'nifty-generators'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

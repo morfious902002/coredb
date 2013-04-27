@@ -3,7 +3,7 @@ class Systemadmin < ActiveRecord::Base
   has_many :primary_host_admin, :class_name => 'Host', :foreign_key => 'primary_host_id'
   has_many :secondary_host_admin, :class_name => 'Host', :foreign_key => 'secondary_host_id'
 
-  validates :email, :format => /@/
+  #validates :email, :format => /@/
 
   def sa_name1
   	sa_name1 = self.name
