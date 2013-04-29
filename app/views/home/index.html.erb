@@ -2,6 +2,8 @@
 <%= form_tag("/home/index", :method => "post") do %>
   <%= label_tag(:q, "Database:") %>
   <%= text_field_tag(:q) %>
+  <%= label_tag(:db_admin, "DB Admin Name:") %>
+  <%= text_field_tag(:db_admin) %>
   <%= label_tag(:app_name, "Application Name:") %>
   <%= text_field_tag(:app_name) %>
   <%= submit_tag("Search") %>

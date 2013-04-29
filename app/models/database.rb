@@ -9,7 +9,7 @@ class Database < ActiveRecord::Base
   validate   :dba_primary_secondary_validation
   has_many   :schemas
   
-
+  
   def dba_name1
     primary_dba.try(:dba_name1)
   end
@@ -28,5 +28,9 @@ class Database < ActiveRecord::Base
 
   def dba_primary_secondary_validation
     errors.add(:dba_name2, "cannot be same as Primary Database Admin.") if dba_name1 == dba_name2
+  end
+
+  def database_name
+    database_name = self.name
   end
 end
